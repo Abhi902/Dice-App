@@ -5,8 +5,6 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -25,6 +23,14 @@ class MyApp extends StatelessWidget {
             ),
           ),
           backgroundColor: Colors.yellow[400],
+        ),
+        body: Center(
+          child: Row(
+            children: <Widget>[
+              Expanded(child: Image.asset('images/dice1.png')),
+              Expanded(child: Image.asset('images/dice2.png')),
+            ],
+          ),
         ),
       ),
     );
