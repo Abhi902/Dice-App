@@ -27,8 +27,28 @@ class MyApp extends StatelessWidget {
         body: Center(
           child: Row(
             children: <Widget>[
-              Expanded(child: Image.asset('images/dice1.png')),
-              Expanded(child: Image.asset('images/dice2.png')),
+              Expanded(
+                child: Padding(
+                  padding: EdgeInsets.all(16),
+                  child: FlatButton(
+                    onPressed: () {
+                      print('left button got pressed');
+                    },
+                    child: Image.asset('images/dice1.png'),
+                  ),
+                ),
+              ),
+              Expanded(
+                child: Padding(
+                  padding: EdgeInsets.all(16),
+                  child: FlatButton(
+                    onPressed: () {
+                      print('right button pressed');
+                    },
+                    child: Image.asset('images/dice2.png'),
+                  ),
+                ),
+              ),
             ],
           ),
         ),
