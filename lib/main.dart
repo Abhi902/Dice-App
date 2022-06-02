@@ -1,28 +1,44 @@
 import 'package:flutter/material.dart';
+import 'dart:math';
 
 void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  int leftdicenumber = 1;
+  int rightdicenumber = 5;
+
+  void changediceface() {
+    setState(() {
+      leftdicenumber = Random().nextInt(6) + 1;
+      rightdicenumber = Random().nextInt(6) + 1;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        backgroundColor: Colors.teal[900],
+        backgroundColor: Colors.red[400],
         appBar: AppBar(
           title: Center(
             child: Text(
               'Dice',
               style: TextStyle(
-                color: Colors.blue[900],
+                color: Colors.red[900],
                 fontSize: 60,
                 fontWeight: FontWeight.bold,
               ),
             ),
           ),
-          backgroundColor: Colors.yellow[400],
+          backgroundColor: Colors.white,
         ),
         body: Center(
           child: Row(
@@ -32,9 +48,9 @@ class MyApp extends StatelessWidget {
                   padding: EdgeInsets.all(16),
                   child: FlatButton(
                     onPressed: () {
-                      print('left button got pressed');
+                      changediceface();
                     },
-                    child: Image.asset('images/dice1.png'),
+                    child: Image.asset('images/dice$leftdicenumber.png'),
                   ),
                 ),
               ),
@@ -43,9 +59,9 @@ class MyApp extends StatelessWidget {
                   padding: EdgeInsets.all(16),
                   child: FlatButton(
                     onPressed: () {
-                      print('right button pressed');
+                      changediceface();
                     },
-                    child: Image.asset('images/dice2.png'),
+                    child: Image.asset('images/dice$rightdicenumber.png'),
                   ),
                 ),
               ),
